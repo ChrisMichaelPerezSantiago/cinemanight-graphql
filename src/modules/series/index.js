@@ -12,7 +12,7 @@ const typeDefs = gql `
     poster: String!
     rating: String!
     year: String!
-    extra: [Extra!]! // look for error based on the type of extra
+    extra: [Extra!]! 
   }
 
   type Extra{ 
