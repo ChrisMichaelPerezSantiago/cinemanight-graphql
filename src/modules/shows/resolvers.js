@@ -18,6 +18,18 @@ const resolvers = {
           return doc.episodes
         });
     },
+    video_serie: async(_source , {id , eps} , { dataSources }) =>{
+      return dataSources.API.getSeriesVideoContent(id , eps)
+        .then(doc => {
+          return doc.video_iframe
+        });
+    },
+    video_movie: async(_source , {id} , { dataSources }) =>{
+      return dataSources.API.getMoviesVideoContent(id)
+        .then(doc => {
+          return doc.video_iframe
+        });
+    },
     search: async(_source , {q} , { dataSources}) =>{
       return dataSources.API.search(q)
         .then(doc =>{
