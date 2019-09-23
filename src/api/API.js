@@ -13,6 +13,22 @@ class API extends RESTDataSource {
   async getAllSeries(page){
     return this.get(`series/${page}`);
   }
+
+  async getAllMovies(page){
+    return this.get(`movies/${page}`);
+  }
+
+  async getSeriesVideoContent(id , eps){
+    return this.get(`video_serie/${id}-${eps}`);
+  }
+
+  async getMoviesVideoContent(id){
+    return this.get(`video_movie/${id}`);
+  }
+
+  async search(query){
+    return this.get(`search/${query}`);
+  }
 };
 
 module.exports = API;
