@@ -6,6 +6,8 @@ const typeDefs = gql `
     series(page: Int!): [Series!]!
     movies(page: Int!): [Movies!]!
     episodes(page: Int!): [Episodes!]!
+    video_serie(id: String! , eps: String!): [VideoIframe!]!
+    video_movie(id: String!): [VideoIframe!]!
   }
 
   interface MainContent{
@@ -45,6 +47,15 @@ const typeDefs = gql `
     date: String!
     quality: String!
     sinopsis: String!
+  }
+
+  type VideoIframe{
+    iframe: Iframe
+  }
+
+  type Iframe{
+    option: Int 
+    video_iframe: String
   }
 
   type SerieExtra {
