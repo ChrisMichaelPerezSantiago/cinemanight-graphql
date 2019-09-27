@@ -30,12 +30,12 @@ const resolvers = {
           return doc.video_iframe
         });
     },
-    search: async(_source , {q} , { dataSources}) =>{
-      return dataSources.API.search(q)
+    search: async(_source , {query} , { dataSources}) =>{
+      return dataSources.API.search(query)
         .then(doc =>{
-          return doc.content
+          return doc.content;
         });
-    }
+    },
   }
 };
 
