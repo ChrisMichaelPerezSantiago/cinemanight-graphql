@@ -7,8 +7,16 @@
     "start": "nodemon index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": {
+    "name": "Chris Michael",
+    "email": "chrisperezsantiago1@gmail.com",
+    "url": "http://personal-porfolio.chrismichael.now.sh"
+  },
   "license": "MIT",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/ChrisMichaelPerezSantiago/cinemanight-graphql"
+  },
   "dependencies": {
     "apollo-datasource-rest": "^0.6.4",
     "apollo-server": "^2.9.3",
