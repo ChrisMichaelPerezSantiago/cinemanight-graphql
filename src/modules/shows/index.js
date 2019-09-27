@@ -8,18 +8,12 @@ const typeDefs = gql `
     episodes(page: Int!): [Episodes!]!
     video_serie(id: String! , eps: String!): [VideoIframe!]!
     video_movie(id: String!): [VideoIframe!]!
+    search(query: String!): [Search!]!
   }
 
-  interface MainContent{
-    id: String!
-    title: String!
-    sinopsis: String!
-    poster: String!
-    rating: String!
-    year: String!
-  }
-
-  type Series implements MainContent{
+  union Search = Series | Movies
+  
+  type Series{
     id: String!
     title: String!
     sinopsis: String!
@@ -29,12 +23,13 @@ const typeDefs = gql `
     extra: [SerieExtra!]!
   }
 
-  type Movies implements MainContent{
+  type Movies{
     id: String!
     title: String!
     sinopsis: String!
     poster: String!
     rating: String!
+    quality: String!
     year: String!
     extra: [MovieExtra!]!
   }
@@ -48,6 +43,7 @@ const typeDefs = gql `
     quality: String!
     sinopsis: String!
   }
+
 
   type VideoIframe{
     iframe: Iframe
