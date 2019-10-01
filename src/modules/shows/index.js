@@ -9,10 +9,12 @@ const typeDefs = gql `
     video_serie(id: String! , eps: String!): [VideoIframe!]!
     video_movie(id: String!): [VideoIframe!]!
     search(query: String!): [Search!]!
+    best_series: [RankedSeries!]!
+    best_movies: [RankedMovies!]!
   }
 
   union Search = Series | Movies
-  
+
   type Series{
     id: String!
     title: String!
@@ -42,6 +44,26 @@ const typeDefs = gql `
     date: String!
     quality: String!
     sinopsis: String!
+  }
+
+  type RankedMovies{ 
+    id: String!
+    title: String!
+    type: String!
+    poster: String!
+    ranking: String!
+    rating: String!
+    extra: [MovieExtra!]! 
+  }
+
+  type RankedSeries{ 
+    id: String!
+    title: String!
+    type: String!
+    poster: String!
+    ranking: String!
+    rating: String!
+    extra: [SerieExtra!]!
   }
 
 
