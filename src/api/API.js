@@ -29,6 +29,14 @@ class API extends RESTDataSource {
   async search(query){
     return this.get(`search/${query}`);
   }
+
+  async getBestMoviesRanked(){
+    return this.get(`best_movies`);
+  }
+
+  async getBestSeriesRanked(){
+    return this.get(`best_series`);
+  }
 };
 
 module.exports = API;
