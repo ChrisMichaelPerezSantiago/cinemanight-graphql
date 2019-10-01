@@ -14,8 +14,6 @@
 *This API will give you access to the content of the pedropolis.tv page, you can query any information related to each series, movies and episodes of series in broadcast using graphql*
 
 
-<img height="40%" width="100%" src="./src/assets/img/apollo-gql.png">
-
 
 ## 📣Read this please!📣
 *Project under development, more details in the coming days.*
