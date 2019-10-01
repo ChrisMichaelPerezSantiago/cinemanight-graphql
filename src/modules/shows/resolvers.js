@@ -1,4 +1,10 @@
 const resolvers = {
+  Search:{
+    __resolveType(obj , context , info){
+      // ...
+    }
+  },
+
   Query: {
     series: async (_source, {page}, {dataSources}) => {
       return dataSources.API.getAllSeries(page)
@@ -32,10 +38,22 @@ const resolvers = {
     },
     search: async(_source , {query} , { dataSources}) =>{
       return dataSources.API.search(query)
-        .then(doc =>{
+        .then(doc => {
           return doc.content;
         });
     },
+    best_series: async(_source , _args , {dataSources}) =>{
+      return dataSources.API.getBestSeriesRanked()
+        .then(doc =>{
+          return doc.ranked_series;
+        });
+    },
+    best_movies: async(_source , _args , {dataSources}) =>{
+      return dataSources.API.getBestMoviesRanked()
+        .then(doc =>{
+          return doc.ranked_movies;
+        });
+    }
   }
 };
 
